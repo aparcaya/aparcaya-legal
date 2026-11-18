@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AparcaYa — Privacidad y términos</title>
+<meta name="description" content="Política de privacidad y términos de uso de AparcaYa.">
+<style>
+  :root {
+    --azul: #1646C8; --tinta: #1E232B; --suave: #566070;
+    --linea: #E3E6EC; --fondo: #FFFFFF; --caja: #F6F7F9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --azul: #8AB0FF; --tinta: #EDEFF3; --suave: #AEB6C2;
+      --linea: #343C49; --fondo: #171B21; --caja: #1F242C;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--fondo); color: var(--tinta);
+    font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .envoltorio { max-width: 760px; margin: 0 auto; padding: 32px 16px 72px; }
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+  .marca {
+    width: 52px; height: 52px; border-radius: 14px; background: var(--azul);
+    color: #fff; display: grid; place-items: center;
+    font-weight: 700; font-size: 28px; flex: none;
+  }
+  h1 { font-size: 26px; margin: 0; letter-spacing: -0.3px; }
+  h2 { font-size: 22px; margin: 44px 0 4px; letter-spacing: -0.2px; }
+  h3 { font-size: 17px; margin: 26px 0 6px; }
+  p, li { color: var(--tinta); }
+  .fecha, .pie { color: var(--suave); font-size: 15px; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  nav { margin: 22px 0 0; display: flex; gap: 10px; flex-wrap: wrap; }
+  nav a {
+    background: var(--caja); border: 1px solid var(--linea); color: var(--tinta);
+    text-decoration: none; padding: 9px 14px; border-radius: 999px; font-size: 15px;
+  }
+  .aviso {
+    background: var(--caja); border: 1px solid var(--linea);
+    border-radius: 14px; padding: 16px; margin: 26px 0 0;
+  }
+  a { color: var(--azul); }
+  footer { margin-top: 56px; border-top: 1px solid var(--linea); padding-top: 18px; }
+</style>
+</head>
+<body>
+<div class="envoltorio">
+  <header>
+    <div class="marca">P</div>
+    <div>
+      <h1>AparcaYa</h1>
+      <p class="fecha" style="margin:2px 0 0">Privacidad y términos de uso</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#privacidad">Política de privacidad</a>
+    <a href="#terminos">Términos de uso</a>
+    <a href="#borrar">Borrar mi cuenta</a>
+  </nav>
+
+  <div class="aviso">
+    <p style="margin:0">AparcaYa pone en contacto a conductores. Avisar de una plaza libre en la
+    calle es gratis y no reserva nada. El cobro existe solo al alquilar plazas de garaje privadas.</p>
+  </div>
+
+  <section id="privacidad">
+    <h2>Política de privacidad</h2>
+    <p class="fecha">Última actualización: noviembre de 2026</p>
+    <h3>Quién es el responsable</h3>
+    <p>El responsable del tratamiento de tus datos es Esteban Cano Insa.</p>
+    <p>Puedes contactar escribiendo a aparcaya.app@gmail.com.</p>
+    <h3>Qué datos tratamos</h3>
+    <ul>
+      <li>Cuenta: nombre, correo electrónico y contraseña (el proveedor de autenticación la guarda cifrada). Opcionales: teléfono, coche y foto de perfil.</li>
+      <li>Ubicación: se usa mientras tienes la app abierta para mostrarte plazas cercanas y calcular distancias. Solo se guarda cuando publicas una plaza, como ubicación y dirección de esa plaza.</li>
+      <li>Avisos, reservas de garaje y monedero: a qué plazas has avisado que ibas, tus reservas de garaje, los movimientos del saldo y las valoraciones.</li>
+      <li>Pagos: los gestiona Stripe. AparcaYa no guarda los datos de tu tarjeta.</li>
+      <li>Retiradas: el titular y el IBAN que escribes al solicitar una retirada.</li>
+      <li>Avisos de problemas: el motivo que eliges y lo que nos cuentas cuando una reserva no salió bien.</li>
+      <li>Datos técnicos: registros de errores y de funcionamiento del servidor.</li>
+    </ul>
+    <h3>Para qué los usamos y con qué base legal</h3>
+    <ul>
+      <li>Prestarte el servicio (avisar de plazas libres, publicar la tuya y alquilar garajes): ejecución del contrato.</li>
+      <li>Seguridad y prevención del fraude: interés legítimo.</li>
+      <li>Usar tu ubicación: tu consentimiento, que das con el permiso del sistema y puedes retirar cuando quieras en los ajustes del móvil.</li>
+      <li>Cumplir obligaciones legales, por ejemplo contables o fiscales.</li>
+    </ul>
+    <h3>Con quién los compartimos</h3>
+    <p>Usamos proveedores que tratan datos por nuestra cuenta:</p>
+    <p>Los demás usuarios ven, de tus plazas publicadas, tu nombre, la dirección y la ubicación. No ven tu correo, tu teléfono ni tus movimientos.</p>
+    <ul>
+      <li>Supabase: alojamiento de la base de datos, autenticación y archivos.</li>
+      <li>Stripe: cobros con tarjeta.</li>
+      <li>Proveedor de correo electrónico: envío de los códigos de verificación.</li>
+      <li>Servicio de direcciones del sistema (Google en Android, Apple en iPhone): al publicar una plaza se le envían las coordenadas para obtener la dirección.</li>
+      <li>OpenStreetMap: al cargar el mapa recibe tu dirección IP y la zona que estás viendo.</li>
+    </ul>
+    <h3>Transferencias fuera del Espacio Económico Europeo</h3>
+    <p>Algunos proveedores pueden tratar datos fuera del Espacio Económico Europeo. Cuando ocurra, exigimos garantías adecuadas según el RGPD, como las cláusulas contractuales tipo.</p>
+    <h3>Cuánto tiempo los conservamos</h3>
+    <p>Mientras tengas la cuenta. Al borrarla eliminamos tus datos personales: nombre, teléfono, coche y foto.</p>
+    <p>Conservamos las reservas, los movimientos del saldo y las retiradas ya hechas, sin tu nombre, porque son apuntes contables que la ley obliga a guardar.</p>
+    <p>Tu cuenta queda cerrada y no se puede volver a entrar con ese correo.</p>
+    <h3>Tus derechos</h3>
+    <p>Puedes pedir acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de tus datos escribiendo a aparcaya.app@gmail.com.</p>
+    <p>También puedes borrar tu cuenta tú mismo desde Ajustes. Si te queda saldo recargado con tarjeta, te lo devolvemos al mismo método de pago; el saldo ganado con garajes debes pedirlo antes, porque se paga por transferencia.</p>
+    <p>También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+    <h3>Seguridad</h3>
+    <p>Cada usuario solo puede ver sus propios datos privados (perfil, reservas y monedero). Las operaciones con dinero las hace el servidor, no la app.</p>
+    <h3>Menores</h3>
+    <p>AparcaYa es solo para mayores de 18 años.</p>
+    <h3>Cambios en esta política</h3>
+    <p>Si cambiamos esta política, lo avisaremos en la app. La fecha de arriba indica la última versión.</p>
+  </section>
+
+  <section id="terminos">
+    <h2>Términos de uso</h2>
+    <p class="fecha">Última actualización: noviembre de 2026</p>
+    <h3>Qué es AparcaYa</h3>
+    <p>AparcaYa pone en contacto a conductores: uno avisa de que va a dejar una plaza en la calle y otros ven ese aviso. En la vía pública el servicio es gratuito y no reserva nada: la plaza es pública y aparca quien llega primero. AparcaYa no es titular de las plazas, no las vende y no garantiza que haya una disponible.</p>
+    <h3>Quién puede usarla</h3>
+    <ul>
+      <li>Ser mayor de 18 años y poder conducir legalmente.</li>
+      <li>Dar datos verdaderos y mantener una sola cuenta.</li>
+      <li>Cuidar tu contraseña: eres responsable de lo que se haga con tu cuenta.</li>
+    </ul>
+    <h3>Publicar una plaza</h3>
+    <ul>
+      <li>Se publica en la ubicación donde estás, con la dirección que obtiene la app.</li>
+      <li>Solo puedes tener una plaza publicada a la vez.</li>
+      <li>Indica el tamaño de la plaza (pequeña, mediana o grande) con honestidad: otros conductores deciden con ese dato.</li>
+      <li>Puedes retirarla mientras nadie la esté reservando.</li>
+      <li>Publica solo plazas que realmente vayas a dejar libres en el tiempo indicado.</li>
+    </ul>
+    <h3>Avisar de que vas a una plaza de la calle</h3>
+    <ul>
+      <li>Es gratis: no se cobra nada por avisar ni por publicar.</li>
+      <li>El aviso no reserva la plaza ni te da ningún derecho sobre ella.</li>
+      <li>Varios conductores pueden ir a la vez hacia la misma plaza.</li>
+      <li>Te decimos cuántos van, para que decidas con esa información.</li>
+      <li>Quien publica no cobra nada por hacerlo.</li>
+    </ul>
+    <h3>Saldo y retiradas</h3>
+    <ul>
+      <li>El saldo solo se gana alquilando un garaje privado, nunca con plazas de la vía pública.</li>
+      <li>El saldo recargado con tarjeta no se puede retirar.</li>
+      <li>Se puede retirar el saldo ganado con garajes, a partir de 5,00 €, o por debajo de esa cifra si retiras todo lo que te queda.</li>
+      <li>Las retiradas se procesan de forma manual y pueden tardar unos días.</li>
+      <li>Si borras tu cuenta con saldo recargado sin gastar, te lo devolvemos al método de pago con el que lo recargaste.</li>
+    </ul>
+    <h3>Reembolsos y problemas</h3>
+    <p>Los reembolsos no son automáticos.</p>
+    <p>Si reservaste un garaje y la plaza no estaba al llegar, avísanos desde la propia reserva con «La plaza no estaba», dentro de las 48 horas siguientes al pago. Puedes avisar una vez por reserva.</p>
+    <p>Revisamos cada aviso antes de decidir, para que nadie pueda avisar en falso. Te diremos algo escribiendo a aparcaya.app@gmail.com.</p>
+    <h3>Plazas en la vía pública</h3>
+    <p>Estacionar en la vía pública está sujeto a la normativa de tráfico y a las ordenanzas de cada municipio. Cumplirlas es responsabilidad tuya.</p>
+    <p>Nadie paga ni cobra por una plaza de la vía pública: AparcaYa solo informa de que un conductor va a marcharse, y no garantiza que la plaza siga libre ni que sea utilizable.</p>
+    <h3>Conducta no permitida</h3>
+    <ul>
+      <li>Publicar plazas falsas o que no vas a dejar libres.</li>
+      <li>Suplantar a otras personas o usar cuentas ajenas.</li>
+      <li>Intentar defraudar o manipular pagos, saldo o valoraciones.</li>
+      <li>Usar la app para algo ilegal.</li>
+    </ul>
+    <h3>Responsabilidad</h3>
+    <p>AparcaYa no responde de multas, daños, retrasos ni de que una plaza esté ocupada al llegar. Esto no limita los derechos que la ley reconoce a los consumidores.</p>
+    <h3>Suspensión de cuentas</h3>
+    <p>Podemos suspender o cerrar cuentas que incumplan estas condiciones.</p>
+    <h3>Cambios en estas condiciones</h3>
+    <p>Podemos actualizar estas condiciones; lo avisaremos en la app.</p>
+    <h3>Ley aplicable</h3>
+    <p>Se aplica la ley española. Si eres consumidor, puedes acudir a los tribunales de tu domicilio.</p>
+  </section>
+
+  <section id="borrar">
+    <h2>Cómo borrar tu cuenta</h2>
+    <p>Puedes borrar tu cuenta desde la propia aplicación: <strong>Perfil → Ajustes → Borrar mi
+    cuenta</strong>. Se eliminan tu nombre, tu teléfono, tu coche y tu foto, y no podrás volver a
+    entrar con ese correo.</p>
+    <p>Se conservan, sin tu nombre, las reservas, los movimientos del monedero y las retiradas ya
+    hechas, porque son apuntes contables que la ley obliga a guardar.</p>
+    <p>Si no puedes acceder a la aplicación, escribe a aparcaya.app@gmail.com desde la dirección de correo de
+    tu cuenta y la borraremos nosotros.</p>
+  </section>
+
+  <footer>
+    <p class="pie">Responsable: Esteban Cano Insa · Contacto: <a href="mailto:aparcaya.app@gmail.com">aparcaya.app@gmail.com</a></p>
+    <p class="pie">Este texto describe el funcionamiento de la aplicación a noviembre de 2026.
+    Si cambia, se actualizará aquí y se avisará en la app.</p>
+  </footer>
+</div>
+</body>
+</html>
