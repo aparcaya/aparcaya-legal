@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AparcaYa — Pruébala antes que nadie</title>
+<meta name="description" content="AparcaYa avisa de las plazas que quedan libres en la calle y permite alquilar garajes por horas. Busco gente que la pruebe.">
+
+<!-- Para que al compartir el enlace por WhatsApp salga bonito -->
+<meta property="og:title" content="AparcaYa — Pruébala antes que nadie">
+<meta property="og:description" content="Avisas de que dejas tu plaza y los conductores de alrededor lo ven en el mapa. En la calle, gratis.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --asfalto: #1E232B;
+    --asfalto-claro: #272D37;
+    --tinta-clara: #F4F6F9;
+    --apagado: #B4BCC8;
+    --azul: #1646C8;
+    --amarillo: #FFC21A;
+    --linea: #39414E;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--asfalto);
+    color: var(--tinta-clara);
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* La pintura del carril, como en la app */
+  .carril {
+    position: fixed; left: 0; top: 0; bottom: 0; width: 8px;
+    background: repeating-linear-gradient(
+      to bottom, var(--amarillo) 0, var(--amarillo) 44px,
+      transparent 44px, transparent 78px);
+    opacity: .85;
+  }
+
+  .hoja { max-width: 680px; margin: 0 auto; padding: 56px 24px 72px 40px; }
+
+  header { display: flex; align-items: center; gap: 14px; }
+  .senal {
+    width: 52px; height: 52px; border-radius: 14px; background: var(--azul);
+    display: grid; place-items: center; flex: none;
+  }
+  .senal i {
+    width: 38px; height: 38px; border: 3px solid #fff; border-radius: 10px;
+    display: grid; place-items: center;
+    font-style: normal; font-size: 26px; font-weight: 800; color: #fff; line-height: 1;
+  }
+  header b { font-size: 30px; font-weight: 800; letter-spacing: -.6px; }
+
+  h1 {
+    margin-top: 48px;
+    font-size: clamp(38px, 9vw, 62px);
+    line-height: 1.02; font-weight: 800; letter-spacing: -2px;
+  }
+
+  .entrada { margin-top: 26px; font-size: 19px; color: var(--apagado); max-width: 46ch; }
+  .entrada strong { color: var(--tinta-clara); font-weight: 600; }
+
+  .dos { margin-top: 44px; display: grid; gap: 16px; }
+  @media (min-width: 620px) { .dos { grid-template-columns: 1fr 1fr; } }
+
+  .bloque {
+    background: var(--asfalto-claro); border: 1px solid var(--linea);
+    border-radius: 18px; padding: 22px 22px 24px;
+  }
+  .bloque h2 { font-size: 19px; font-weight: 700; letter-spacing: -.3px; }
+  .bloque p { margin-top: 8px; font-size: 16px; color: var(--apagado); }
+
+  h3 { margin-top: 56px; font-size: 26px; font-weight: 800; letter-spacing: -.8px; }
+
+  ol { margin-top: 20px; list-style: none; counter-reset: paso; display: grid; gap: 18px; }
+  ol li { counter-increment: paso; display: flex; gap: 16px; align-items: flex-start; }
+  ol li::before {
+    content: counter(paso);
+    flex: none; width: 34px; height: 34px; border-radius: 10px;
+    background: var(--amarillo); color: #1B1F26;
+    display: grid; place-items: center; font-weight: 800; font-size: 17px;
+  }
+  ol li div { padding-top: 4px; font-size: 17px; }
+  ol li small { display: block; margin-top: 4px; font-size: 15px; color: var(--apagado); }
+
+  .boton {
+    display: block; margin-top: 40px; text-align: center;
+    background: var(--amarillo); color: #1B1F26; text-decoration: none;
+    font-size: 20px; font-weight: 800; letter-spacing: -.3px;
+    padding: 20px 24px; border-radius: 16px;
+  }
+  .boton:hover { filter: brightness(1.06); }
+  .boton:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  .bajo-boton { margin-top: 12px; text-align: center; font-size: 15px; color: var(--apagado); }
+
+  .aviso {
+    margin-top: 48px; border-left: 4px solid var(--amarillo);
+    padding: 4px 0 4px 18px; font-size: 16px; color: var(--apagado);
+  }
+  .aviso strong { color: var(--tinta-clara); font-weight: 600; }
+
+  footer {
+    margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--linea);
+    font-size: 15px; color: var(--apagado);
+  }
+  footer a { color: var(--tinta-clara); }
+</style>
+</head>
+<body>
+  <div class="carril" aria-hidden="true"></div>
+
+  <main class="hoja">
+    <header>
+      <div class="senal" aria-hidden="true"><i>P</i></div>
+      <b>AparcaYa</b>
+    </header>
+
+    <h1>¿Cuántas vueltas das para aparcar?</h1>
+
+    <p class="entrada">
+      AparcaYa es una app hecha desde cero por una persona, aquí en Alcoi.
+      Está terminada y funciona, pero antes de abrirla al público
+      <strong>necesito gente que la use de verdad</strong>.
+    </p>
+
+    <div class="dos">
+      <div class="bloque">
+        <h2>En la calle, gratis</h2>
+        <p>
+          Cuando te vas a marchar, avisas desde la app. Los conductores de
+          alrededor lo ven en el mapa al momento. No se reserva nada ni se paga
+          nada: la plaza es pública y aparca quien llega primero.
+        </p>
+      </div>
+      <div class="bloque">
+        <h2>Garajes por horas</h2>
+        <p>
+          Si tienes una plaza de garaje parada, la publicas con tu horario y tu
+          precio, y cobras por las horas que alguien la ocupe. Y si necesitas
+          aparcar seguro un rato, reservas una cerca.
+        </p>
+      </div>
+    </div>
+
+    <h3>Cómo apuntarte</h3>
+    <ol>
+      <li>
+        <div>
+          Comprueba con qué cuenta de Google tienes la Play Store en el móvil.
+          <small>Play Store → tu foto arriba a la derecha. Tiene que ser esa cuenta.</small>
+        </div>
+      </li>
+      <li>
+        <div>
+          Pulsa el botón de abajo desde el móvil y dale a «Convertirme en tester».
+          <small>Mejor con Chrome. Si lo abres desde dentro de WhatsApp a veces usa otra cuenta y falla.</small>
+        </div>
+      </li>
+      <li>
+        <div>
+          Instala AparcaYa desde la Play Store, como cualquier otra app.
+          <small>Si la primera vez da error, espera un rato: tarda un poco en activarse.</small>
+        </div>
+      </li>
+    </ol>
+
+    <!-- ====================================================================
+         CAMBIA ESTE ENLACE por el que te da Play Console:
+         Pruebas > Pruebas internas > pestana Testers > "Unirse en la Web"
+         ==================================================================== -->
+    <a class="boton" href="https://play.google.com/apps/testing/com.aparcaya.app">Quiero probarla</a>
+    <p class="bajo-boton">Es gratis y puedes salirte cuando quieras.</p>
+
+    <p class="aviso">
+      <strong>Está en pruebas.</strong> Puede fallar, y los pagos de los garajes
+      todavía no son reales: no uses tu tarjeta. Si algo se rompe o no se
+      entiende, escríbeme y lo arreglo.
+    </p>
+
+    <footer>
+      Escríbeme a <a href="mailto:soporte.aparcaya@gmail.com">soporte.aparcaya@gmail.com</a>.
+      <br>
+      Puedes leer la <a href="index.html#privacidad">política de privacidad</a> y los
+      <a href="index.html#terminos">términos de uso</a>.
+    </footer>
+  </main>
+</body>
+</html>
