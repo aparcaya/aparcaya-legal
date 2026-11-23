@@ -101,6 +101,25 @@
   .boton:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
   .bajo-boton { margin-top: 12px; text-align: center; font-size: 15px; color: var(--apagado); }
 
+  /* El QR solo tiene sentido si estás delante de un ordenador: en el móvil
+     estorba, porque ahí el botón ya hace el trabajo. */
+  .qr { display: none; }
+  @media (min-width: 720px) {
+    .qr {
+      display: flex; align-items: center; gap: 22px;
+      margin-top: 28px; padding: 20px;
+      background: var(--asfalto-claro); border: 1px solid var(--linea);
+      border-radius: 18px;
+    }
+    .qr .cuadro {
+      background: #fff; padding: 10px; border-radius: 12px;
+      line-height: 0; flex: none;
+    }
+    .qr .cuadro img, .qr .cuadro canvas { display: block; width: 132px; height: 132px; }
+    .qr p { font-size: 16px; color: var(--apagado); }
+    .qr p b { display: block; color: var(--tinta-clara); font-size: 17px; margin-bottom: 4px; }
+  }
+
   .aviso {
     margin-top: 48px; border-left: 4px solid var(--amarillo);
     padding: 4px 0 4px 18px; font-size: 16px; color: var(--apagado);
@@ -178,6 +197,15 @@
          ==================================================================== -->
     <a class="boton" href="https://play.google.com/apps/testing/com.aparcaya.app">Quiero probarla</a>
     <p class="bajo-boton">Es gratis y puedes salirte cuando quieras.</p>
+
+    <div class="qr">
+      <div class="cuadro"><div id="qr"></div></div>
+      <p>
+        <b>¿Estás en el ordenador?</b>
+        Apunta con la cámara del móvil a este código y sigue desde ahí. Hay que
+        hacerlo en el teléfono donde quieras instalar la app.
+      </p>
+    </div>
 
     <p class="aviso">
       <strong>Está en pruebas.</strong> Puede fallar, y los pagos de los garajes
